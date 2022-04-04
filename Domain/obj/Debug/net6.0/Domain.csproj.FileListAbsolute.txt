@@ -1,0 +1,12 @@
+/Users/yan/RiderProjects/TimeTracking/Domain/bin/Debug/net6.0/Domain.deps.json
+/Users/yan/RiderProjects/TimeTracking/Domain/bin/Debug/net6.0/Domain.dll
+/Users/yan/RiderProjects/TimeTracking/Domain/bin/Debug/net6.0/Domain.pdb
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.AssemblyInfoInputs.cache
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.AssemblyInfo.cs
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.csproj.CoreCompileInputs.cache
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.dll
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/refint/Domain.dll
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/Domain.pdb
+/Users/yan/RiderProjects/TimeTracking/Domain/obj/Debug/net6.0/ref/Domain.dll
