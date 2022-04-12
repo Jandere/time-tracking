@@ -12,4 +12,13 @@ public class Role : Enumeration
         : base(id, name)
     {
     }
+
+    public static Role? GetRoleByName(string name) =>
+        name switch
+        {
+            nameof(Administrator) => Administrator,
+            nameof(Developer) => Developer,
+            nameof(Main) => Main,
+            _ => null
+        };
 }

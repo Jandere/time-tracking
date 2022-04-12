@@ -12,6 +12,8 @@ public class Result
 
     public string[] Errors { get; set; }
 
+    public string ErrorsAsString => string.Join(", ", Errors);
+
     public static Result Success()
     {
         return new Result(true, Array.Empty<string>());

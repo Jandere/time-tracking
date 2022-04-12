@@ -10,5 +10,7 @@ public partial class MappingProfile : Profile
         MapDevelopers();
         MapCompanies();
         MapProjects();
+        MapWorkDays();
+        MapBreaks();
     }
 }

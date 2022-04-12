@@ -1,3 +1,4 @@
+using Application.Common.Interfaces;
 using Application.Common.Models;
 using Application.Developers.Commands.CreateDeveloper;
 using Application.Developers.Commands.DeleteDeveloper;
@@ -7,14 +8,25 @@ using Application.Developers.Queries.GetAllDevelopers;
 using Application.Developers.Queries.GetDeveloperById;
 using Application.Developers.Queries.GetDeveloperFullInfo;
 using Application.Developers.Queries.GetDeveloperProjects;
+using Application.Developers.Queries.GetDeveloperWorkDays;
 using Application.Projects.Queries;
+using Application.WorkDays.Queries;
+using Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Web.Extensions;
+using Web.Filters;
 
 namespace Web.Controllers;
 
 public class DeveloperController : BaseApiController
 {
+    private readonly ICurrentUserService _currentUserService;
+
+    public DeveloperController(ICurrentUserService currentUserService)
+    {
+        _currentUserService = currentUserService;
+    }
+    
     [HttpGet]
     public async Task<ActionResult<ICollection<DeveloperDto>>> GetAll()
     {
@@ -43,17 +55,24 @@ public class DeveloperController : BaseApiController
         return Ok(await Mediator.Send(new GetDeveloperProjectsQuery(id)));
     }
 
-    // TODO написать логику по рабочим дням
-    [HttpGet("{id}/WorkDays")]
-    public async Task<ActionResult> GetWorkDays(string id)
+    [HttpGet("WorkDays")]
+    [AppAuthorize(nameof(Role.Developer))]
+    public async Task<ActionResult<ICollection<WorkDayDto>>> GetWorkDaysForDeveloper(DateTime dateFrom, DateTime dateTo)
     {
-        return Ok();
+        return Ok(await Mediator.Send(new GetDeveloperWorkDaysQuery(_currentUserService.UserId!, dateFrom, dateTo)));
+    }
+
+    [HttpGet("{id}/WorkDays")]
+    [AppAuthorize(nameof(Role.Administrator))]
+    public async Task<ActionResult<ICollection<WorkDayDto>>> GetWorkDays(string id, DateTime dateFrom, DateTime dateTo)
+    {
+        return Ok(await Mediator.Send(new GetDeveloperWorkDaysQuery(id, dateFrom, dateTo)));
     }
 
     [HttpPost]
     public async Task<ActionResult<AuthenticateRequest>> Create([FromBody] CreateDeveloperCommand request)
     {
-        if (!ModelState.IsValid) return BadRequest(Result.Failure(ModelState.GetErrors()));
+        if (!ModelState.IsValid) return BadRequest(ModelState.GetErrors());
         
         return Ok(await Mediator.Send(request));
     }
@@ -65,12 +84,12 @@ public class DeveloperController : BaseApiController
         
         if (!ModelState.IsValid) return BadRequest(Result.Failure(ModelState.GetErrors()));
  
-        return Ok(await Mediator.Send(request));
+        return HandleResult(await Mediator.Send(request));
     }
 
     [HttpDelete("{id}")]
     public async Task<ActionResult<Result>> Delete(string id)
     {
-        return Ok(await Mediator.Send(new DeleteDeveloperCommand(id)));
+        return HandleResult(await Mediator.Send(new DeleteDeveloperCommand(id)));
     }
 }

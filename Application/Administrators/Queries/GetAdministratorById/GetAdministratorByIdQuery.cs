@@ -14,7 +14,7 @@ public class GetAdministratorByIdQuery : IRequest<AdministratorDto?>
         Id = id;
     }
 
-    public string Id { get; set; }
+    public string Id { get; }
 }
 
 internal class GetAdministratorByIdQueryHandler : IRequestHandler<GetAdministratorByIdQuery, AdministratorDto?>

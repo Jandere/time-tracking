@@ -2,6 +2,7 @@ using Application.Common.Models;
 using Application.Projects.Commands.CreateProject;
 using Application.Projects.Commands.DeleteProject;
 using Application.Projects.Commands.UpdateProject;
+using Application.Projects.Commands.UpdateProjectAsTeamLead;
 using Application.Projects.Commands.UpdateProjectTeamLead;
 using Application.Projects.Queries;
 using Application.Projects.Queries.GetAllProjects;
@@ -30,33 +31,43 @@ public class ProjectController : BaseApiController
     [HttpPost]
     public async Task<ActionResult<Result>> Create([FromBody] CreateProjectCommand request)
     {
-        return Ok(await Mediator.Send(request));
+        return HandleResult(await Mediator.Send(request));
     }
 
-    [HttpPut("{id:int}")]
+    [HttpPut("{id:int}/TeamLead")]
     [AppAuthorize(nameof(Role.Administrator))]
     public async Task<ActionResult<Result>> ChangeTeamLead(int id, [FromBody] UpdateProjectTeamLeadCommand request)
     {
         if (id != request.Id)
             return BadRequest("Ids not equal");
         
-        return Ok(await Mediator.Send(request));
+        return HandleResult(await Mediator.Send(request));
     }
 
+    [HttpPut("AsTeamLead/{id:int}")]
+    [AppAuthorize(nameof(Role.Developer))]
+    public async Task<ActionResult<Result>> UpdateAsTeamLead(int id, [FromBody] UpdateProjectAsTeamLeadCommand request)
+    {
+        if (id != request.Id)
+            return BadRequest("Ids not equal");
+
+        return HandleResult(await Mediator.Send(request));
+    }
+    
     [HttpPut("{id:int}")]
-    [AppAuthorize(nameof(Role.Administrator), nameof(Role.Developer))]
+    [AppAuthorize(nameof(Role.Administrator))]
     public async Task<ActionResult<Result>> Update(int id, [FromBody] UpdateProjectCommand request)
     {
         if (id != request.Id)
             return BadRequest("Ids not equal");
 
-        return Ok(await Mediator.Send(request));
+        return HandleResult(await Mediator.Send(request));
     }
 
     [HttpDelete("{id:int}")]
     [AppAuthorize(nameof(Role.Administrator))]
     public async Task<ActionResult<Result>> Delete(int id)
     {
-        return Ok(await Mediator.Send(new DeleteProjectCommand(id)));
+        return HandleResult(await Mediator.Send(new DeleteProjectCommand(id)));
     }
 }

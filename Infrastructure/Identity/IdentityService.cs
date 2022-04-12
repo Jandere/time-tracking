@@ -88,14 +88,14 @@ public class IdentityService : IIdentityService
 
         var token = GenerateJwtToken(user);
 
-        return new AuthenticateResponse(user.UserName, user.Id, token);
+        return new AuthenticateResponse(user.UserName, user.Id, token, user.RoleName);
     }
 
     public AuthenticateResponse Login(AppUser user)
     {
         var token = GenerateJwtToken(user);
 
-        return new AuthenticateResponse(user.UserName, user.Id, token);
+        return new AuthenticateResponse(user.UserName, user.Id, token, user.RoleName);
     }
 
     public async Task<AuthenticateResponse> AdministratorRegisterAsync(AdministratorRegisterRequest request)

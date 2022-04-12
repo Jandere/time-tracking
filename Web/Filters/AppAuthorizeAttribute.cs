@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Domain.Common;
 using Domain.Enums;
 using Microsoft.AspNetCore.Authorization;
@@ -27,10 +28,9 @@ public class AppAuthorizeAttribute : AuthorizeAttribute, IAuthorizationFilter
 
     public void OnAuthorization(AuthorizationFilterContext context)
     {
-        foreach (var role in Roles)
-        {
-            if (!context.HttpContext.User.IsInRole(role.Name))
-                context.Result = new ForbidResult();
-        }
+        var role = Role.GetRoleByName(context.HttpContext.User.FindFirstValue(ClaimTypes.Role));
+
+        if (Roles.Count > 0 && (role == null || !Roles.Contains(role)))
+            context.Result = new ForbidResult();
     }
 }

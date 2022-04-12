@@ -8,7 +8,7 @@ public class WorkDay : BaseEntity<int>
 {
     public DateTime Date { get; set; }
 
-    public DateTime StartDate { get; set; }
+    public DateTime? StartDate { get; set; }
     
     public DateTime? EndDate { get; set; }
 
@@ -23,6 +23,9 @@ public class WorkDay : BaseEntity<int>
 
     private double CalculateWorkedTime()
     {
+        if (!StartDate.HasValue)
+            return 0.0;
+        
         if (!EndDate.HasValue)
         {
             var breakStart = Breaks.MinBy(b => b.StartDate);
@@ -30,13 +33,13 @@ public class WorkDay : BaseEntity<int>
             switch (breakStart)
             {
                 case {EndDate: null}:
-                    return breakStart.StartDate.GetDifferenceInSeconds(StartDate);
+                    return breakStart.StartDate.GetDifferenceInSeconds(StartDate.Value);
                 case null:
-                    return DateTime.Now.GetDifferenceInSeconds(StartDate);
+                    return DateTime.Now.GetDifferenceInSeconds(StartDate.Value);
             }
         }
         
-        var workedTime = EndDate!.Value.GetDifferenceInSeconds(StartDate);
+        var workedTime = EndDate!.Value.GetDifferenceInSeconds(StartDate.Value);
 
         var breakTime = Breaks
             .Where(b => b.EndDate.HasValue)

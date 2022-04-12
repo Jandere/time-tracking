@@ -7,7 +7,7 @@ public class WorkDayDto : BaseDto<int>
 {
     public DateTime Date { get; set; }
 
-    public DateTime StartDate { get; set; }
+    public DateTime? StartDate { get; set; }
     
     public DateTime? EndDate { get; set; }
 
@@ -16,4 +16,8 @@ public class WorkDayDto : BaseDto<int>
     public IList<BreakDto> Breaks { get; set; } = new List<BreakDto>();
 
     public double TotalWorkedTimeInSeconds { get; set; }
+
+    public double TotalWorkedTimeInMinutes => TimeSpan.FromSeconds(TotalWorkedTimeInSeconds).TotalMinutes;
+
+    public double TotalWorkedTimeInHours => TimeSpan.FromSeconds(TotalWorkedTimeInSeconds).TotalHours;
 }

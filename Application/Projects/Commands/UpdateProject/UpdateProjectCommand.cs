@@ -34,8 +34,11 @@ internal class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectComman
     public async Task<Result> Handle(UpdateProjectCommand request, CancellationToken cancellationToken)
     {
         var project = await _context.Projects
-            .FirstOrDefaultAsync(p => p.Id == request.Id, cancellationToken);
-
+            .Include(p => p.Company)
+            .FirstOrDefaultAsync(p => p.Id == request.Id
+                                      && p.Company.AdministratorId == _currentUserService.UserId,
+                cancellationToken);
+        
         _mapper.Map(request, project);
         
         return await _context.SaveChangesAsync(cancellationToken) 
