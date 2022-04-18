@@ -1,4 +1,5 @@
 using Domain.Entities;
+using Hangfire;
 using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
@@ -41,5 +42,12 @@ public static class ApplicationExtensions
 
             throw;
         }
+    }
+
+    public static IApplicationBuilder UseHangFire(this IApplicationBuilder app)
+    {
+        app.UseHangfireDashboard("/jobs");
+        HangFireJobScheduler.SetJobs();
+        return app;
     }
 }

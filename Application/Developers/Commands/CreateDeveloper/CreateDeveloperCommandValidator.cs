@@ -12,12 +12,7 @@ public class CreateDeveloperCommandValidator : AbstractValidator<CreateDeveloper
             .NotNull()
             .WithMessage("Username must not be null")
             .NotEmpty()
-            .WithMessage("Username must not be empty")
-            .MustAsync(async (userName, token) =>
-            {
-                var exist = await context.AppUsers.AnyAsync(u => u.UserName == userName, token);
-                return !exist;
-            }).WithMessage("Username must be unique");
+            .WithMessage("Username must not be empty");
 
         RuleFor(x => x.Password)
             .NotNull()

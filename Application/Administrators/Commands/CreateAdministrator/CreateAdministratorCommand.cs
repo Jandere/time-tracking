@@ -6,6 +6,7 @@ using Domain.Entities;
 using Domain.Enums;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Administrators.Commands.CreateAdministrator;
 
@@ -40,11 +41,16 @@ public class CreateAdministratorCommandHandler : IRequestHandler<CreateAdministr
     
     public async Task<AuthenticateResponse> Handle(CreateAdministratorCommand request, CancellationToken cancellationToken)
     {
+        var isUsernameTaken = await _userManager.Users.AnyAsync(u => u.UserName == request.UserName, cancellationToken);
+
+        if (isUsernameTaken)
+            throw new BusinessLogicException("Username already taken");
+        
         var administratorRole = await _roleManager.FindByNameAsync(Role.Administrator.Name);
 
         if (administratorRole is null)
             throw new NotFoundException(nameof(Role), Role.Administrator.Name);
-        
+
         var administrator = _mapper.Map<AppUser>(request);
         administrator.RoleName = administratorRole.Name;
         administrator.RoleId = administratorRole.Id;

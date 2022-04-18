@@ -67,6 +67,9 @@ app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseHttpsRedirection();
 
+app.UseHangFire();
+
+
 app.UseAuthentication();
 app.UseAuthorization();
 

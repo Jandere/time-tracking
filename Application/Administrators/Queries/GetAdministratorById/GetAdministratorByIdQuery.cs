@@ -31,7 +31,7 @@ internal class GetAdministratorByIdQueryHandler : IRequestHandler<GetAdministrat
     public async Task<AdministratorDto?> Handle(GetAdministratorByIdQuery request, CancellationToken cancellationToken)
     {
         var administrator = await _context.AppUsers
-            .Where(u => u.Id == request.Id && u.RoleName == Role.Administrator.Name)
+            .Where(u => u.Id == request.Id)
             .ProjectTo<AdministratorDto>(_mapper.ConfigurationProvider)
             .FirstOrDefaultAsync(cancellationToken);
 

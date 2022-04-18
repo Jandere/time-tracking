@@ -30,7 +30,7 @@ internal class FinishBreakCommandHandler : IRequestHandler<FinishBreakCommand, R
             .SingleOrDefaultAsync(b => b.Id == request.Id 
                                        && b.WorkDay.DeveloperId == _currentUserService.UserId, 
                 cancellationToken);
-        
+
         if (@break is null)
             return Result.Failure("Break not found");
 

@@ -2,6 +2,7 @@ using Application.Common.Interfaces;
 using Application.Common.Models;
 using AutoMapper;
 using Domain.Entities;
+using Domain.Enums;
 using MediatR;
 
 namespace Application.Companies.Commands.CreateCompany;
@@ -27,9 +28,6 @@ internal class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyComman
     
     public async Task<Result> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
     {
-        if (_currentUserService.UserId == null) 
-            return Result.Failure("Administrator not authorized");
-        
         var company = _mapper.Map<Company>(request);
         company.AdministratorId = _currentUserService.UserId!;
 

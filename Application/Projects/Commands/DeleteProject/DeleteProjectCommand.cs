@@ -1,6 +1,5 @@
 using Application.Common.Interfaces;
 using Application.Common.Models;
-using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,12 +18,10 @@ public class DeleteProjectCommand : IRequest<Result>
 internal class DeleteProjectCommandHandler : IRequestHandler<DeleteProjectCommand, Result>
 {
     private readonly IApplicationDbContext _context;
-    private readonly IMapper _mapper;
 
-    public DeleteProjectCommandHandler(IApplicationDbContext context, IMapper mapper)
+    public DeleteProjectCommandHandler(IApplicationDbContext context)
     {
         _context = context;
-        _mapper = mapper;
     }
 
     public async Task<Result> Handle(DeleteProjectCommand request, CancellationToken cancellationToken)

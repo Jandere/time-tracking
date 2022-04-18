@@ -35,6 +35,9 @@ internal class UpdateProjectAsTeamLeadCommandHandler : IRequestHandler<UpdatePro
             .FirstOrDefaultAsync(p => p.Id == request.Id
                                       && p.TeamLeadId == _currentUserService.UserId,
                 cancellationToken);
+        
+        if (project is null)
+            return Result.Failure("Project not found");
 
         _mapper.Map(request, project);
         

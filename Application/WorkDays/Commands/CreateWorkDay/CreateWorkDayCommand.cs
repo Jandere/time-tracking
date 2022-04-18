@@ -3,6 +3,7 @@ using Application.Common.Models;
 using AutoMapper;
 using Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.WorkDays.Commands.CreateWorkDay;
 
@@ -29,6 +30,14 @@ internal class CreateWorkDayCommandHandler : IRequestHandler<CreateWorkDayComman
     
     public async Task<Result> Handle(CreateWorkDayCommand request, CancellationToken cancellationToken)
     {
+        var isWorkDayExist = await _context.WorkDays
+            .AnyAsync(x => x.Date.Date == request.Date.Date &&
+                _currentUserService.UserId == x.DeveloperId, 
+                cancellationToken);
+        
+        if (isWorkDayExist)
+            return Result.Failure("Work day already exist");
+        
         var workDay = _mapper.Map<WorkDay>(request);
 
         workDay.DeveloperId = _currentUserService.UserId!;

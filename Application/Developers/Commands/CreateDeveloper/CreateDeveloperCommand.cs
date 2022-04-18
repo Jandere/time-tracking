@@ -44,8 +44,12 @@ internal class CreateDeveloperCommandHandler : IRequestHandler<CreateDeveloperCo
     
     public async Task<AuthenticateResponse?> Handle(CreateDeveloperCommand request, CancellationToken cancellationToken)
     {
+        var userWithSameUsername = await _userManager.FindByNameAsync(request.UserName);
+       
+        if (userWithSameUsername is not null)
+            throw new BusinessLogicException("Username already taken");
+        
         var developerRole = await _roleManager.FindByNameAsync(Role.Developer.Name);
-
         if (developerRole is null)
             throw new NotFoundException(nameof(Role), Role.Developer.Name);
         

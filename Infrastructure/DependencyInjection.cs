@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using Application.Common.Interfaces;
 using Domain.Entities;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
 using Infrastructure.Services;
@@ -58,6 +60,9 @@ public static class DependencyInjection
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["AuthOptions:Key"]!))
                 };
             });
+
+        services.AddHangfire(x => x.UsePostgreSqlStorage(configuration.GetConnectionString("DefaultConnection")!));
+        services.AddHangfireServer();
         
         services.AddAuthorization();
 
