@@ -13,7 +13,11 @@ public class AppUser : IdentityUser
 
     public decimal? HourlyRate { get; set; }
 
+    public string? Position { get; set; }
+
     public string RoleName { get; set; } = null!;
+    
+    public string? ImgPath { get; set; }
 
     public int? CompanyId { get; set; }
 

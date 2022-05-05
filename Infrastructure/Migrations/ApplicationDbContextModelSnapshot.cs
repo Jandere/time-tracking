@@ -47,6 +47,9 @@ namespace Infrastructure.Migrations
                     b.Property<decimal?>("HourlyRate")
                         .HasColumnType("numeric");
 
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("text");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
 
@@ -75,6 +78,9 @@ namespace Infrastructure.Migrations
 
                     b.Property<bool>("PhoneNumberConfirmed")
                         .HasColumnType("boolean");
+
+                    b.Property<string>("Position")
+                        .HasColumnType("text");
 
                     b.Property<string>("RoleId")
                         .IsRequired()
@@ -151,12 +157,24 @@ namespace Infrastructure.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Address")
+                        .HasColumnType("text");
+
                     b.Property<string>("AdministratorId")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Bin")
+                        .HasColumnType("text");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImgPath")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -217,6 +235,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("ImgPath")
                         .HasColumnType("text");
 
                     b.Property<string>("Name")

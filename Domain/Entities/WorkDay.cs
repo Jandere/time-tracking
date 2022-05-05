@@ -28,15 +28,11 @@ public class WorkDay : BaseEntity<int>
         
         if (!EndDate.HasValue)
         {
-            var breakStart = Breaks.MinBy(b => b.StartDate);
-
-            switch (breakStart)
-            {
-                case {EndDate: null}:
-                    return breakStart.StartDate.GetDifferenceInSeconds(StartDate.Value);
-                case null:
-                    return DateTime.Now.GetDifferenceInSeconds(StartDate.Value);
-            }
+            var workedTime2 = DateTime.Now.GetDifferenceInSeconds(StartDate.Value);
+            var breakTime2 = Breaks
+                .Where(b => b.EndDate.HasValue)
+                .Sum(b => b.EndDate!.Value.GetDifferenceInSeconds(b.StartDate));
+            return workedTime2 - breakTime2;
         }
         
         var workedTime = EndDate!.Value.GetDifferenceInSeconds(StartDate.Value);

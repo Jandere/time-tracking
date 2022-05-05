@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6P6GKGZ2asNPu/4dOT1RB0n8it2OSyEwjh2bUfQCkAVD4hja4lYCua0TsILSh36466jq4DOnHYWOL9NwVS241Q==",
+  "dgSpecHash": "P8Um4GYcNirNLmb8wz1zV2SUUBhkifCwyBQoy4y7wLyAXoT9yCH1XcwMjQhzhyJo4VHJzSwNfM6GgfrACB9L8Q==",
   "success": true,
   "projectFilePath": "/Users/yan/RiderProjects/TimeTracking/Web/Web.csproj",
   "expectedPackageFiles": [
@@ -32,6 +32,7 @@
     "/Users/yan/.nuget/packages/microsoft.aspnetcore.cryptography.keyderivation/6.0.3/microsoft.aspnetcore.cryptography.keyderivation.6.0.3.nupkg.sha512",
     "/Users/yan/.nuget/packages/microsoft.aspnetcore.dataprotection.abstractions/5.0.0/microsoft.aspnetcore.dataprotection.abstractions.5.0.0.nupkg.sha512",
     "/Users/yan/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/6.0.3/microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.3.nupkg.sha512",
+    "/Users/yan/.nuget/packages/microsoft.aspnetcore.http.features/6.0.0-preview.4.21253.5/microsoft.aspnetcore.http.features.6.0.0-preview.4.21253.5.nupkg.sha512",
     "/Users/yan/.nuget/packages/microsoft.aspnetcore.identity.entityframeworkcore/6.0.3/microsoft.aspnetcore.identity.entityframeworkcore.6.0.3.nupkg.sha512",
     "/Users/yan/.nuget/packages/microsoft.aspnetcore.identity.ui/6.0.2/microsoft.aspnetcore.identity.ui.6.0.2.nupkg.sha512",
     "/Users/yan/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
@@ -82,6 +83,7 @@
     "/Users/yan/.nuget/packages/system.data.sqlclient/4.4.0/system.data.sqlclient.4.4.0.nupkg.sha512",
     "/Users/yan/.nuget/packages/system.diagnostics.diagnosticsource/7.0.0-preview.2.22152.2/system.diagnostics.diagnosticsource.7.0.0-preview.2.22152.2.nupkg.sha512",
     "/Users/yan/.nuget/packages/system.identitymodel.tokens.jwt/6.10.0/system.identitymodel.tokens.jwt.6.10.0.nupkg.sha512",
+    "/Users/yan/.nuget/packages/system.io.pipelines/6.0.0-preview.4.21253.7/system.io.pipelines.6.0.0-preview.4.21253.7.nupkg.sha512",
     "/Users/yan/.nuget/packages/system.reflection.emit/4.7.0/system.reflection.emit.4.7.0.nupkg.sha512",
     "/Users/yan/.nuget/packages/system.runtime.compilerservices.unsafe/7.0.0-preview.2.22152.2/system.runtime.compilerservices.unsafe.7.0.0-preview.2.22152.2.nupkg.sha512",
     "/Users/yan/.nuget/packages/system.security.accesscontrol/4.4.0/system.security.accesscontrol.4.4.0.nupkg.sha512",

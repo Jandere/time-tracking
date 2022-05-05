@@ -10,6 +10,14 @@ namespace Application.Companies.Commands.CreateCompany;
 public class CreateCompanyCommand : IRequest<Result>
 {
     public string Name { get; set; } = null!;
+    
+    public string? ImgPath { get; set; }
+    
+    public string? Description { get; set; }
+    
+    public string? Address { get; set; }
+
+    public string? Bin { get; set; }
 }
 
 internal class CreateCompanyCommandHandler : IRequestHandler<CreateCompanyCommand, Result>

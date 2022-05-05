@@ -67,7 +67,7 @@ public class IdentityService : IIdentityService
         var user = _userManager.Users.SingleOrDefault(u => u.Id == userId);
         
         if (user == null) 
-            return Result.Failure(new []{"User not found"});
+            return Result.Failure("User not found");
 
         var result = await _userManager.DeleteAsync(user);
 
@@ -161,7 +161,7 @@ public class IdentityService : IIdentityService
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Role, user.RoleName)
             }),
-            Expires = _dateTime.Now.AddHours(_authOptions.Lifetime),
+            Expires = _dateTime.Now.AddDays(_authOptions.Lifetime),
             SigningCredentials =
                 new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             Audience = _authOptions.Audience,

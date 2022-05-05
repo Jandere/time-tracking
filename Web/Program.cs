@@ -19,6 +19,10 @@ builder.Services.AddApplication()
     .AddHealthChecks()
         .AddDbContextCheck<ApplicationDbContext>();
 
+builder.Services.AddCors(setup => setup.AddPolicy("Default",
+    b => b.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(_ => true)
+        .AllowCredentials()));
+
 builder.Services.AddControllers()
     .AddFluentValidation(x => x.AutomaticValidationEnabled = false);
 
@@ -62,6 +66,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.UseCors("Default");
 
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 

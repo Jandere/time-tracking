@@ -18,6 +18,10 @@ public class CreateDeveloperCommand : IRequest<AuthenticateResponse?>
     public string? Name { get; set; }
     
     public string? Patronymic { get; set; }
+    
+    public string? Position { get; set; }
+    
+    public string? ImgPath { get; set; }
 
     public string Password { get; set; } = null!;
 

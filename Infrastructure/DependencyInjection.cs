@@ -46,6 +46,7 @@ public static class DependencyInjection
         services.Configure<AuthOptions>(configuration.GetSection(nameof(AuthOptions)));
         services.AddTransient<IDateTime, DateTimeService>();
         services.AddTransient<IIdentityService, IdentityService>();
+        services.AddTransient<IFileService, FileService>();
         
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opt =>

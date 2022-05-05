@@ -25,6 +25,7 @@ public class CompanyController : BaseApiController
     }
 
     [HttpGet("{id:int}")]
+    [AppAuthorize(nameof(Role.Administrator), nameof(Role.Developer))]
     public async Task<ActionResult<CompanyDetailsDto>> GetById(int id)
     {
         var company = await Mediator.Send(new GetCompanyByIdQuery(id));
@@ -32,12 +33,14 @@ public class CompanyController : BaseApiController
     }
 
     [HttpGet("{id:int}/Developers")]
+    [AppAuthorize(nameof(Role.Administrator), nameof(Role.Developer))]
     public async Task<ActionResult<ICollection<DeveloperDto>>> GetDevelopers(int id)
     {
         return Ok(await Mediator.Send(new GetCompanyDevelopersQuery(id)));
     }
 
     [HttpGet("{id:int}/Projects")]
+    [AppAuthorize(nameof(Role.Administrator), nameof(Role.Developer))]
     public async Task<ActionResult<ICollection<ProjectDto>>> GetProjects(int id)
     {
         return Ok(await Mediator.Send(new GetCompanyProjectsQuery(id)));

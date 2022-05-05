@@ -13,6 +13,8 @@ public class CreateProjectCommand : IRequest<Result>
     public string Name { get; set; } = null!;
 
     public string? Description { get; set; }
+    
+    public string? ImgPath { get; set; }
 
     public string? TeamLeadId { get; set; }
 

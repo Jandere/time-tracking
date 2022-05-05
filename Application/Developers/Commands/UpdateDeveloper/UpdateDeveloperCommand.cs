@@ -10,8 +10,8 @@ namespace Application.Developers.Commands.UpdateDeveloper;
 
 public class UpdateDeveloperCommand : IRequest<Result>
 {
-    public string Id { get; set; }
-    
+    public string Id { get; set; } = null!;
+
     public string UserName { get; set; } = null!;
 
     public string? Surname { get; set; }
@@ -21,6 +21,10 @@ public class UpdateDeveloperCommand : IRequest<Result>
     public string? Patronymic { get; set; }
 
     public decimal HourlyRate { get; set; }
+    
+    public string? Position { get; set; }
+
+    public string? ImgPath { get; set; }
 
     public int CompanyId { get; set; }
 }

@@ -9,6 +9,8 @@ public class Project : BaseEntity<int>
 
     public string? Description { get; set; }
 
+    public string? ImgPath { get; set; }
+
     public string? TeamLeadId { get; set; }
     
     public int CompanyId { get; set; }

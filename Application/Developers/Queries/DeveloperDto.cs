@@ -16,6 +16,10 @@ public class DeveloperDto
     
     public decimal HourlyRate { get; set; }
 
+    public string? Position { get; set; }
+    
+    public string? ImgPath { get; set; }
+
     public string RoleName { get; set; } = null!;
 
     public int CompanyId { get; set; }

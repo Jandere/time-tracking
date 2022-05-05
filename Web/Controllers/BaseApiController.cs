@@ -14,6 +14,6 @@ public class BaseApiController : ControllerBase
 
     protected ActionResult<Result> HandleResult(Result result)
     {
-        return result.Succeeded ? Ok() : BadRequest(result.ErrorsAsString);
+        return result.Succeeded ? Ok(result) : BadRequest(result.ErrorsAsString);
     }
 }

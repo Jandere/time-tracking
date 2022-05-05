@@ -8,6 +8,12 @@ public class Result
         Errors = errors.ToArray();
     }
 
+    internal Result(bool succeeded, string[] errors)
+    {
+        Succeeded = succeeded;
+        Errors = errors;
+    }
+
     public bool Succeeded { get; set; }
 
     public string[] Errors { get; set; }

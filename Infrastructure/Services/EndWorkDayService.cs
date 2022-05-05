@@ -13,35 +13,43 @@ public class EndWorkDayService
     {
         _context = context;
     }
-    
+
+    public virtual async Task<List<WorkDay>> GetWorkDays(DateTime date)
+    {
+        return await _context.WorkDays
+            .Where(x => x.Date.Date >= date.AddDays(-1))
+            .Where(x => x.StartDate != null)
+            .Where(x => x.EndDate == null)
+            .Where(w => date.Date != w.StartDate!.Value.Date)
+            .ToListAsync();
+    }
+
     [AutomaticRetry(Attempts = 0)]
     public async Task EndWorkDays()
     {
         var now = DateTime.Now;
+        var workDays = await GetWorkDays(now);
 
-        var workDaysWorked8HoursFilter = 
-            (WorkDay w) => now - w.StartDate!.Value > TimeSpan.FromHours(8) && now.Date == w.StartDate.Value.Date;
-
-        var workDaysFinishedDayFilter =
-            (WorkDay w) => now.Date != w.StartDate!.Value.Date;
-        
-        var workDays = await _context.WorkDays
-            .Where(x => x.Date.Date >= now.AddDays(-5))
-            .Where(x => x.StartDate != null)
-            .Where(w => now - w.StartDate!.Value > TimeSpan.FromHours(8) && now.Date == w.StartDate.Value.Date
-                        || now.Date != w.StartDate!.Value.Date)
-            .ToListAsync();
-
-        var workDaysWorked8Hours = workDays.Where(workDaysWorked8HoursFilter).ToList();
-
-        var workDaysFinishedDay = workDays.Where(workDaysFinishedDayFilter).ToList();
-        
-        // workDaysWorked8Hours.ForEach(x => x.EndDate = now);
-        // workDaysFinishedDay.ForEach(x => x.EndDate = x.StartDate!.Value.Date.AddDays(1).AddSeconds(-1));
-
-        Parallel.ForEach(workDaysWorked8Hours, x => x.EndDate = now);
-        Parallel.ForEach(workDaysFinishedDay, x => x.EndDate = x.StartDate!.Value.Date.AddDays(1).AddSeconds(-1));
+        Parallel.ForEach(workDays, SetWorkDayFinishTime);
 
         await _context.SaveChangesAsync(CancellationToken.None);
+    }
+
+    private static void SetWorkDayFinishTime(WorkDay workDay)
+    {
+        var date = workDay.StartDate!.Value.Date;
+
+        var breakTimeInSeconds = workDay.Breaks.Sum(x => (x.EndDate - x.StartDate)?.TotalSeconds ?? 0);
+
+        var breakTime = TimeSpan.FromSeconds(breakTimeInSeconds);
+        
+        var finishTime = date.AddHours(8).Add(breakTime);
+
+        if (finishTime.Date != date.Date)
+        {
+            finishTime = date.Date.AddDays(1).AddSeconds(-1);
+        }
+
+        workDay.EndDate = finishTime;
     }
 }

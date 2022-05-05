@@ -8,9 +8,13 @@ public class ProjectDto : BaseDto<int>
 
     public string? Description { get; set; }
 
+    public string? ImgPath { get; set; }
+
     public string? TeamLeadId { get; set; }
     
     public int CompanyId { get; set; }
+    
+    public string? CompanyAdministratorId { get; set; }
 
     public string TeamLeadFullName { get; set; } = string.Empty;
 

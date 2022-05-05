@@ -3,7 +3,7 @@ using Infrastructure.Services;
 
 namespace Infrastructure;
 
-public class HangFireJobScheduler
+public static class HangFireJobScheduler
 {
     public static void SetJobs()
     {

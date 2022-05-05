@@ -12,18 +12,16 @@ public partial class MappingProfile
         CreateMap<Project, ProjectDto>()
             .ForMember(x => x.TeamLeadFullName,
                 op => op.MapFrom(
-                    x => $"{x.TeamLead.Surname} {x.TeamLead.Name} {x.TeamLead.Patronymic}"));
+                    x => $"{x.TeamLead.Surname} {x.TeamLead.Name} {x.TeamLead.Patronymic}"))
+            .ForMember(x => x.CompanyAdministratorId,
+                op => op.MapFrom(
+                    x => x.Company.AdministratorId));
 
         CreateMap<Project, ProjectDetailsDto>()
-            .ForMember(x => x.TeamLead,
-                op => op.MapFrom(
-                    x => x.TeamLead))
+            .IncludeBase<Project, ProjectDto>()
             .ForMember(x => x.Developers,
                 op => op.MapFrom(
-                    x => x.Developers.Select(d => d.Developer)))
-            .ForMember(x => x.TeamLeadFullName,
-                op => op.MapFrom(
-                    x => $"{x.TeamLead.Surname} {x.TeamLead.Name} {x.TeamLead.Patronymic}"));
+                    x => x.Developers.Select(d => d.Developer)));
 
         CreateMap<CreateProjectCommand, Project>();
 

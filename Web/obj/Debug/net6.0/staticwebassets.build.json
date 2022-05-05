@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "I45YKMxdLd4rSIfiy4Jy7K87CK1wxLboE3ngw90NHmQ=",
+  "Hash": "8U8b9JRVaik7KR1jvtNhBxvh2jQ9odJGKry8xC41XBI=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Web/wwwroot",
+      "Source": "Web",
+      "ContentRoot": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/",
+      "BasePath": "_content/Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/Files/bx_user.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/",
+      "BasePath": "_content/Web",
+      "RelativePath": "Files/bx_user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Files/bx_user.png"
+    }
+  ]
 }

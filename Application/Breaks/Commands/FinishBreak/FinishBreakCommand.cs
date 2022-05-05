@@ -34,7 +34,7 @@ internal class FinishBreakCommandHandler : IRequestHandler<FinishBreakCommand, R
         if (@break is null)
             return Result.Failure("Break not found");
 
-        if (@break.StartDate < request.FinishTime)
+        if (@break.StartDate > request.FinishTime)
             return Result.Failure("Finish time can't be less than start time");
         
         if (@break.StartDate.Date != request.FinishTime.Date || @break.WorkDay.Date.Date != request.FinishTime.Date)

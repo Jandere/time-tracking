@@ -1,5 +1,6 @@
 using Application.Common.Interfaces;
 using Application.Common.Models;
+using Application.Developers.Commands.AddDeveloperToProject;
 using Application.Developers.Commands.CreateDeveloper;
 using Application.Developers.Commands.DeleteDeveloper;
 using Application.Developers.Commands.UpdateDeveloper;
@@ -84,6 +85,13 @@ public class DeveloperController : BaseApiController
         
         if (!ModelState.IsValid) return BadRequest(Result.Failure(ModelState.GetErrors()));
  
+        return HandleResult(await Mediator.Send(request));
+    }
+
+    [HttpPut("{id}/Project")]
+    [AppAuthorize(nameof(Role.Administrator))]
+    public async Task<ActionResult<Result>> AddProject(string id, [FromBody] AddDeveloperToProjectCommand request)
+    {
         return HandleResult(await Mediator.Send(request));
     }
 
