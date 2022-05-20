@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8U8b9JRVaik7KR1jvtNhBxvh2jQ9odJGKry8xC41XBI=",
+  "Hash": "2bzlpO0YmDyoWOoWbog8hEgeKZUUEdn6OhWWOOqMzfs=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -8,19 +8,19 @@
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [
     {
-      "Name": "Web/wwwroot",
+      "Name": "Web\\wwwroot",
       "Source": "Web",
-      "ContentRoot": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/",
+      "ContentRoot": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/Files/bx_user.png",
+      "Identity": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\wwwroot\\Files\\bx_user.png",
       "SourceId": "Web",
       "SourceType": "Discovered",
-      "ContentRoot": "/Users/yan/RiderProjects/TimeTracking/Web/wwwroot/",
+      "ContentRoot": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
       "RelativePath": "Files/bx_user.png",
       "AssetKind": "All",
@@ -31,7 +31,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/Files/bx_user.png"
+      "OriginalItemSpec": "wwwroot\\Files\\bx_user.png"
     }
   ]
 }

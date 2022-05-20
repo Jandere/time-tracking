@@ -498,24 +498,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/yan/.nuget/packages/": {}
+    "C:\\Users\\HardCode\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj",
+      "projectUniqueName": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj",
-      "packagesPath": "/Users/yan/.nuget/packages/",
-      "outputPath": "/Users/yan/RiderProjects/TimeTracking/Domain/obj/",
+      "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\HardCode\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "/Users/yan/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\HardCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -554,7 +560,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

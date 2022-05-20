@@ -1,33 +1,38 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yan/RiderProjects/TimeTracking/Web/Web.csproj": {}
+    "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\Web.csproj": {}
   },
   "projects": {
-    "/Users/yan/RiderProjects/TimeTracking/Application/Application.csproj": {
+    "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yan/RiderProjects/TimeTracking/Application/Application.csproj",
+        "projectUniqueName": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "/Users/yan/RiderProjects/TimeTracking/Application/Application.csproj",
-        "packagesPath": "/Users/yan/.nuget/packages/",
-        "outputPath": "/Users/yan/RiderProjects/TimeTracking/Application/obj/",
+        "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\HardCode\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/yan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HardCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj": {
-                "projectPath": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj"
+              "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj"
               }
             }
           }
@@ -78,26 +83,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj": {
+    "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj",
+        "projectUniqueName": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj",
-        "packagesPath": "/Users/yan/.nuget/packages/",
-        "outputPath": "/Users/yan/RiderProjects/TimeTracking/Domain/obj/",
+        "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\HardCode\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/yan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HardCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -136,37 +146,42 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/yan/RiderProjects/TimeTracking/Infrastructure/Infrastructure.csproj": {
+    "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yan/RiderProjects/TimeTracking/Infrastructure/Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "/Users/yan/RiderProjects/TimeTracking/Infrastructure/Infrastructure.csproj",
-        "packagesPath": "/Users/yan/.nuget/packages/",
-        "outputPath": "/Users/yan/RiderProjects/TimeTracking/Infrastructure/obj/",
+        "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\HardCode\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/yan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HardCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/yan/RiderProjects/TimeTracking/Application/Application.csproj": {
-                "projectPath": "/Users/yan/RiderProjects/TimeTracking/Application/Application.csproj"
+              "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Application\\Application.csproj"
               },
-              "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj": {
-                "projectPath": "/Users/yan/RiderProjects/TimeTracking/Domain/Domain.csproj"
+              "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Domain\\Domain.csproj"
               }
             }
           }
@@ -221,41 +236,43 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/yan/RiderProjects/TimeTracking/Web/Web.csproj": {
+    "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yan/RiderProjects/TimeTracking/Web/Web.csproj",
+        "projectUniqueName": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "/Users/yan/RiderProjects/TimeTracking/Web/Web.csproj",
-        "packagesPath": "/Users/yan/.nuget/packages/",
-        "outputPath": "/Users/yan/RiderProjects/TimeTracking/Web/obj/",
+        "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\Web.csproj",
+        "packagesPath": "C:\\Users\\HardCode\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Web\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/Users/yan/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\HardCode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/yan/RiderProjects/TimeTracking/Infrastructure/Infrastructure.csproj": {
-                "projectPath": "/Users/yan/RiderProjects/TimeTracking/Infrastructure/Infrastructure.csproj"
+              "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\HardCode\\RiderNew\\time-tracking\\Infrastructure\\Infrastructure.csproj"
               }
             }
           }
@@ -307,7 +324,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.201/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

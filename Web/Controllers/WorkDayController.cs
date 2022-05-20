@@ -2,6 +2,7 @@ using Application.Breaks.Queries;
 using Application.Common.Models;
 using Application.WorkDays.Commands.CreateWorkDay;
 using Application.WorkDays.Commands.FinishWorkDay;
+using Application.WorkDays.Commands.GetOrCreateWorkDay;
 using Application.WorkDays.Queries;
 using Application.WorkDays.Queries.GetBreaks;
 using Application.WorkDays.Queries.GetWorkDayByDate;
@@ -28,6 +29,13 @@ public class WorkDayController : BaseApiController
             return BadRequest("Ids not equal");
         
         return HandleResult(await Mediator.Send(request));
+    }
+
+    [HttpPost("GetOrCreate/{date:datetime}")]
+    [AppAuthorize(nameof(Role.Developer))]
+    public async Task<ActionResult<WorkDayDto>> GetOrCreateWorkDay(DateTime date)
+    {
+        return Ok(await Mediator.Send(new GetOrCreateWorkDayCommand(date)));
     }
 
     [HttpGet("{date:datetime}")]
