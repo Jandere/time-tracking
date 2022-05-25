@@ -7,8 +7,10 @@ using Application.Companies.Queries.GetAllCompanies;
 using Application.Companies.Queries.GetById;
 using Application.Companies.Queries.GetCompanyDevelopers;
 using Application.Companies.Queries.GetCompanyProjects;
+using Application.Companies.Queries.GetCompanyWorkTasks;
 using Application.Developers.Queries;
 using Application.Projects.Queries;
+using Application.WorkTasks.Queries;
 using Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Web.Filters;
@@ -44,6 +46,12 @@ public class CompanyController : BaseApiController
     public async Task<ActionResult<ICollection<ProjectDto>>> GetProjects(int id)
     {
         return Ok(await Mediator.Send(new GetCompanyProjectsQuery(id)));
+    }
+
+    [HttpGet("{id:int}/WorkTasks")]
+    public async Task<ActionResult<ICollection<WorkTaskDto>>> GetWorkTasks(int id)
+    {
+        return Ok(await Mediator.Send(new GetCompanyWorkTasksQuery(id)));
     }
 
     [HttpPost]

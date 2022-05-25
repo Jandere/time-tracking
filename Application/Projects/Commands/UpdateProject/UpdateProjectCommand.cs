@@ -56,6 +56,6 @@ internal class UpdateProjectCommandHandler : IRequestHandler<UpdateProjectComman
         _mapper.Map(request, project);
         
         return await _context.SaveChangesAsync(cancellationToken) 
-            ? Result.Success() : Result.Failure("Error during updating company");
+            ? Result.Success() : Result.Failure("Error during updating project");
     }
 }

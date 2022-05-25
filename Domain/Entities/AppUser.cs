@@ -33,5 +33,7 @@ public class AppUser : IdentityUser
 
     public IList<DeveloperProject> Projects { get; set; } = new List<DeveloperProject>();
 
+    public IList<WorkTaskExecutor> WorkTasks { get; set; } = new List<WorkTaskExecutor>();
+
     public IList<Company> Companies { get; set; } = new List<Company>();
 }

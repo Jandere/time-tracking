@@ -15,5 +15,8 @@ public interface IApplicationDbContext
     DbSet<WorkDay> WorkDays { get; }
     DbSet<Break> Breaks { get; }
 
+    DbSet<WorkTask> WorkTasks { get; }
+    DbSet<WorkTaskExecutor> WorkTaskExecutors { get; }
+
     Task<bool> SaveChangesAsync(CancellationToken cancellationToken);
 }

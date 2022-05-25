@@ -12,5 +12,6 @@ public partial class MappingProfile : Profile
         MapProjects();
         MapWorkDays();
         MapBreaks();
+        MapWorkTask();
     }
 }

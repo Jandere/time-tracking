@@ -1,7 +1,6 @@
 using Application.Common.Interfaces;
 using Domain.Common;
 using Domain.Entities;
-using Domain.Enums;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -25,6 +24,8 @@ public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbCo
 
     public DbSet<WorkDay> WorkDays => Set<WorkDay>();
     public DbSet<Break> Breaks => Set<Break>();
+    public DbSet<WorkTask> WorkTasks => Set<WorkTask>();
+    public DbSet<WorkTaskExecutor> WorkTaskExecutors => Set<WorkTaskExecutor>();
 
     public new async Task<bool> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -49,6 +50,16 @@ public class ApplicationDbContext : IdentityDbContext<AppUser>, IApplicationDbCo
         builder.Entity<AppUser>()
             .HasMany(u => u.Companies)
             .WithOne(c => c.Administrator);
+
+        builder.Entity<WorkTask>()
+            .HasMany(x => x.Executors)
+            .WithOne(x => x.WorkTask)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        builder.Entity<AppUser>()
+            .HasMany(x => x.WorkTasks)
+            .WithOne(x => x.Executor)
+            .OnDelete(DeleteBehavior.Cascade);
         
         base.OnModelCreating(builder);
     }

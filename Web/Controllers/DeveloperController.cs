@@ -10,8 +10,10 @@ using Application.Developers.Queries.GetDeveloperById;
 using Application.Developers.Queries.GetDeveloperFullInfo;
 using Application.Developers.Queries.GetDeveloperProjects;
 using Application.Developers.Queries.GetDeveloperWorkDays;
+using Application.Developers.Queries.GetDeveloperWorkTasks;
 using Application.Projects.Queries;
 using Application.WorkDays.Queries;
+using Application.WorkTasks.Queries;
 using Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 using Web.Extensions;
@@ -68,6 +70,12 @@ public class DeveloperController : BaseApiController
     public async Task<ActionResult<ICollection<WorkDayDto>>> GetWorkDays(string id, DateTime dateFrom, DateTime dateTo)
     {
         return Ok(await Mediator.Send(new GetDeveloperWorkDaysQuery(id, dateFrom, dateTo)));
+    }
+
+    [HttpGet("{id}/WorkTasks")]
+    public async Task<ActionResult<ICollection<WorkTaskDto>>> GetWorkTasks(string id)
+    {
+        return Ok(await Mediator.Send(new GetDeveloperWorkTasksQuery(id)));
     }
 
     [HttpPost]
